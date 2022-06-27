@@ -1,0 +1,46 @@
+<button type="button" class="btn btn-primary" (click)="openPopup()">
+    update an order
+</button>
+<div class="modal" tabindex="-1" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">update an order</h5>
+                <button type="button" class="btn-close" aria-label="Close" (click)="closePopup()">Close</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group mb-1">
+                    <label class="font-weight-light mb-0" for="Product">Product: </label>
+                    <select class="form-control form-control-sm" id="Product" [(ngModel)]="Product">
+                        <option *ngFor="let product of Products" value={{product.ProdID}}>{{product.Description}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group mb-1">
+                    <label class="font-weight-light mb-0" for="ShipMode">ShipMode: </label>
+                    <select class="form-control form-control-sm" id="ShipMode" [(ngModel)]="ShipMode">
+                        <option *ngFor="let shipModeOption of ShipModes" value={{shipModeOption}}>{{shipModeOption}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group mb-1">
+                    <label class="font-weight-light mb-0" for="Quantity">Quantity: </label>
+                    <input type="number" min="1" class="form-control form-control-sm" id="Quantity"
+                        [(ngModel)]="Quantity" />
+                </div>
+                <div class="form-group mb-1">
+                    <label class="font-weight-light mb-0" for="OrderDate">OrderDate: </label>
+                    <input type="date" class="form-control form-control-sm" id="OrderDate" [(ngModel)]="OrderDate" />
+                </div>
+                <div class="form-group mb-1">
+                    <label class="font-weight-light mb-0" for="ShipDate">ShipDate: </label>
+                    <input type="date" class="form-control form-control-sm" id="ShipDate" [(ngModel)]="ShipDate" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-close" (click)="closePopup()">Close</button>
+                <button class="btn btn-secondary" (click)="updateOrder()">Update Order</button>
+            </div>
+        </div>
+    </div>
+</div>

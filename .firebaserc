@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "dip-challenge-fb": {
+      "hosting": {
+        "dip-challenge-ng": [
+          "dip-challenge-fb"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "dip-challenge-fb"
+  }
+}

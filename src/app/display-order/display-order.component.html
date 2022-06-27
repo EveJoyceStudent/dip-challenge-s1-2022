@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="card-body">
+        <p>
+            {{order.Quantity}} x {{order.Product.Description}}, ordered on {{order.OrderDate.toDate().toDateString()}}
+        </p>
+        <p>
+            shipped on {{order.ShipDate.toDate().toDateString()}} via {{order.ShipMode}}
+        </p>
+        <p>
+            total value {{order.Quantity*order.Product.UnitPrice}}, GST {{(order.Quantity*order.Product.UnitPrice/10).toFixed(2)}}
+        </p>
+        <app-update-order [customer]="customer" [order]=order (updateEvent)="updateEvent.emit()"></app-update-order>
+        <button class="btn btn-secondary" (click)="deleteOrder()">Delete Order</button>
+    </div>
+</div>

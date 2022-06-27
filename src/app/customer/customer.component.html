@@ -1,0 +1,18 @@
+<h3>Customer:</h3>
+<p *ngIf="customer">
+    {{customer.CustID}}
+    {{customer.FullName}}
+    {{customer.Country}}
+    {{customer.City}}
+    {{customer.State}}
+    {{customer.PostCode}}
+    {{customer.Region}}
+    <!-- {{customer.Segment.SegID}} -->
+    {{customer.Segment.SegName}}
+</p>
+<app-add-order [customer]="customer.id" (createEvent)="update()"></app-add-order>
+<div *ngIf="orderList[0]">
+    <div *ngFor="let order of orderList">
+        <app-display-order [customer]="customer.id" [order]=order (updateEvent)="update()"></app-display-order>
+    </div>
+</div>
